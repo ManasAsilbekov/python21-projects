@@ -1,10 +1,15 @@
-from models import User, Product, Comment
+from shop.models import Product, Category
+from shop.views import product_list, product_update
 
-user1 = User("test@gmail.com", "hello", "female")
-user1.register("123456789", "123456789")
-user1.login("123456789")
+cat = Category("phones")
+Category("dyson")
+Category("food")
+Product("iphone", 234, "...", 3, cat)
+Product("lenovo", 32, "...", 5, cat)
+Product("samsung", 76, "...", 10, cat)
 
-product1 = Product("Iphone 10", 12345, "...", 10)
-
-comment1 = Comment(user1, product1, "Оч классный телефон")
-print(comment1)
+from pprint import pprint
+# pprint(product_create())
+pprint(product_list())
+id_ = input("Введите прдукт для обновления: ")
+pprint(product_update(id_))
